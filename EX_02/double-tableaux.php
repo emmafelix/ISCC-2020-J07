@@ -1,22 +1,32 @@
 <?php
-$tab1=array('T-shirt rouge','15.50','5');
-$tab2=array('T-shirt vert','15.50','6');
-$tab3=array('T-shirt agrent','15.50','6');
-$tab4=array('Short bleu','16.50','5');
-$tab5=array('Short vert','19.99','10');
-$tab6=array('Veste argent','19.99','10');
-$tab7=array('Veste arge,t','35','3');
-
-$panier= array($tab1,$tab2,$tab3,$tab4,$tab5,$tab6,$tab7);
+$panier= array(
+    array('T-shirt rouge',15.50,5),
+    array('T-shirt vert',15.50,6),
+    array('T-shirt agrent',15.50,6),
+    array('Short bleu',16.50,5),
+    array('Short vert',19.99,10),
+    array('Veste argent',19.99,10),
+    array('Veste argent',35,3)
+);
 
 function afficher_panier($panier){
-    foreach($panier as $value=>$value){
-        echo '<ul>
-        <li>'.$value.'</li>
-        <li>'.$value.'</li>
-        <li>'.$value.'</li>
-        </ul>';
+    foreach($panier as $element){
+echo '<ul> </ul>';
+        foreach($element as $data)
+        echo '<li>'.$data.'</li>'
+        ;
     }
 };
 afficher_panier($panier);
+
+function calculer_total_panier($panier){
+    $somme=0;
+    foreach($panier as $element){
+         $somme=$element[1]*$element[2]+$somme;       
+            };
+    return($somme);
+        
+};
+
+echo calculer_total_panier($panier);
 ?>
